@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>Qml/main.qml</file>
+        <file>Qml/Home/HomePage.qml</file>
+        <file>Qml/WindowButton.qml</file>
+        <file>Qml/ContactModel.qml</file>
+        <file>Qml/View/XImageView.qml</file>
+        <file>Qml/View/qmldir</file>
+        <file>Qml/View/MyListView.qml</file>
+        <file>Qml/View/VolumBarView.qml</file>
     </qresource>
 </RCC>

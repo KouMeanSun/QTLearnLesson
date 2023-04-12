@@ -10,10 +10,18 @@ CONFIG += c++17
 
 SOURCES += \
     MainWindow.cpp \
+    MyListModel.cpp \
+    QQuickPaintedItem/ImageProvider.cpp \
+    QQuickPaintedItem/XImageView.cpp \
+    ShowImage.cpp \
     main.cpp
 
 HEADERS += \
-    MainWindow.h
+    MainWindow.h \
+    MyListModel.h \
+    QQuickPaintedItem/ImageProvider.h \
+    QQuickPaintedItem/XImageView.h \
+    ShowImage.h
 
 FORMS +=
 

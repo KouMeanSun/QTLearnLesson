@@ -19,5 +19,6 @@ int main(int argc, char *argv[])
     MainWindow::registerObject(&engine);
     engine.load(QUrl(u"qrc:/Qml/main.qml"_qs));
 
+
     return app.exec();
 }

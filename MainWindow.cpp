@@ -5,7 +5,9 @@
 #include <QUrl>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-
+#include "QQuickPaintedItem/XImageView.h"
+#include "MyListModel.h"
+#include "ShowImage.h"
 
 MainWindow* theWnd= nullptr;
 
@@ -16,6 +18,9 @@ void MainWindow::registerObject(QQmlEngine* engine)
     // 注册
     qRegisterMetaType<uchar*>("uchar*");
     qmlRegisterType<MainWindow>("Custon.Control",1, 0, "MainWindow");
+    qmlRegisterType<XImageView>("custom.qimi.image",1,0,"XImageView");
+
+
 
 }
 
@@ -24,14 +29,16 @@ MainWindow::MainWindow(QWindow *parent)
 {
     theWnd = this;
 
-//    sEngine->addImageProvider(QLatin1String("video"), new ImageProvider());
+    MyListModel *list = new MyListModel();
+       list->addAnimal(Animal("Wolf", "Medium"));
+       list->addAnimal(Animal("Polar bear", "Large"));
+       list->addAnimal(Animal("Quoll", "Small"));
 
+    sEngine->rootContext()->setContextProperty("dataSource",list);
 
-
-//    EditorAdapter* editorAdapter = new EditorAdapter();
-//    editorAdapter->open();
-//    sEngine->rootContext()->setContextProperty("editorAdapter", editorAdapter);
-//    m_objects.push_back(editorAdapter);
+    ShowImage *CodeImage = new ShowImage();
+    sEngine->rootContext()->setContextProperty("CodeImage",CodeImage);
+    sEngine->addImageProvider(QLatin1String("CodeImg"), CodeImage->m_pImgProvider);
 
 }
 
